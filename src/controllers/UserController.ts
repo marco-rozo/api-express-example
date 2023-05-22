@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { users } from "../data/users";
 
 class UserController {
     index(req: Request, res: Response) {
@@ -6,17 +7,6 @@ class UserController {
     }
 
     async getAll(req: Request, res: Response) {
-
-        const users: any = [
-            {
-                id: 1,
-                email: "marco123@gmail.com",
-            },
-            {
-                id: 2,
-                email: "usuario123@gmail.com",
-            }
-        ];
 
         return res.send(users);
     }
