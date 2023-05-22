@@ -20,10 +20,10 @@ export class AuthUserService {
       throw new Error("User does not exist");
     }
     
-    existUser.password = bcrypt.hashSync(existUser.password!);
+    const passwordCrypt = bcrypt.hashSync(existUser.password!); 
 
-    const isValidPassword = await bcrypt.compare(password, existUser.password);
-    
+    const isValidPassword = await bcrypt.compare(password, passwordCrypt);
+
     if (!isValidPassword) {
       throw new Error("Wrong credentials");
     }
