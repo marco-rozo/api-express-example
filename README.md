@@ -13,3 +13,7 @@ run
 ```
 $ yarn dev
 ```
+
+### Obs
+
+Para não precisar realizar a conexão com um banco de dados e adicionar mais um passo ao processo eu resolvi "Simular" a situação de login no AuthController
