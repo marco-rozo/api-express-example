@@ -5,16 +5,14 @@ export interface IUserResponse {
 
 export interface IUser extends IUserResponse {
   id?: number;
-  password?: string;
+  password: string;
 }
 
 export function fromUserResponse(user: IUser): IUserResponse {
+    let userResponse: IUserResponse = {
+      email: user.email,
+      name: user.name,
+    };
   
-  let userResponse: IUserResponse ={
-    email: user.email,
-    name: user.name
+    return userResponse;
   }
-  
-  return userResponse;
-}
-

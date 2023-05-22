@@ -1,12 +1,16 @@
 import { Router } from "express";
-import AuthController from "./controllers/AuthController";
-import UserController from "./controllers/UserController";
 import authMiddleware from "./middlewares/authMiddleware";
+import { authUserController } from "./useCases/AuthUser";
+import { userController } from "./useCases/User";
 
 const router = Router();
 
-router.post('/auth', AuthController.authenticate);
-router.get('/user', authMiddleware, UserController.index);
-router.get('/users', authMiddleware, UserController.getAll);
+router.post("/auth", (request, response) => {
+  return authUserController.index(request, response);
+});
+
+router.get("/users", authMiddleware, (request, response) => {
+  return userController.getAll(request, response);
+});
 
 export default router;

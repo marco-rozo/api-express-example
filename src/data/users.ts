@@ -1,4 +1,4 @@
-import { IUser } from '../types/userInterfaceDTO';
+import { IUser } from "../useCases/User/UserDTO";
 
 export const users: IUser[] = [
   {

@@ -7,9 +7,9 @@ interface TokenPayload {
     exp: number;
 }
 
-// Middleware para interceptação de rotas
-// Objetivo: idsentificar e validar o toke jwt
+// função para proteção de rotas
 export default function authMiddleware(req: Request, res: Response, next: NextFunction) {
+    // valida o token
     const { authorization } = req.headers;
 
     if (!authorization) {
@@ -19,15 +19,15 @@ export default function authMiddleware(req: Request, res: Response, next: NextFu
     const token = authorization.replace('Bearer', '').trim();
 
     try {
-        
+        // verifica e decodifica o token
         const data = jwt.verify(token, 'secret');
-        console.log(data);
         const { id } = data as TokenPayload;
 
+        // passa o id do usuário para o req criando um namespace e adicionando a propriedade desejada na interface onde precisa
         req.userId = id;
 
         next();
     } catch {
-        return res.sendStatus(401);
+        return res.status(401).json();
     }
 }
