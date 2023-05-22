@@ -10,7 +10,7 @@ class AuthController {
         // Simulando "Busca" usuário
         const user: any = {
             id: 1,
-            email: "marcorozo99@gmail.com",
+            email: "marco123@gmail.com",
             name: "Marco Antonio Rozo",
             password: "marco123"
         };
