@@ -15,7 +15,9 @@ export class AuthUserService {
 
     const existUser: IUser | undefined  = users.find((e) => e.email == email);
 
-
+    // TODO: Criar uma classe base de erro (ex: AppError) em vez de utilizar apenas o Error nativo.
+    // Isso permitirá identificar melhor o tipo de erro e aplicar tratamentos específicos
+    // (como status HTTP, mensagens padronizadas e logging).
     if (!existUser) {
       throw new Error("User does not exist");
     }
